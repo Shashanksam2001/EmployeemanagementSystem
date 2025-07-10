@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" th:href="@{/css/register.css}">
+ 
+ <title>Employee Register</title>
+</head>
+<body>
+ <h3>Welcome to Employee registration form</h3>
+ <form th:action="@{/register}" th:object="${user}" method="post" >
+ <label for="name">Username:</label>
+ <input type="text" id="name" th:field="*{name}" required><br/>
+
+ <label for="password">Password:</label>
+ <input type="password" id="password" th:field="*{password}" required><br/>
+
+ <label for="role">Role:</label>
+ <select id="role" th:field="*{role}" required>
+ <option value="" disabled selected>Select role</option>
+ <option value="ADMIN">ADMIN</option>
+ <option value="USER">USER</option>
+</select><br/>
+
+ <button type="submit">Register</button>
+ </form>
+</body>
+</html>
